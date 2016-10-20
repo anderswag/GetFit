@@ -1,3 +1,48 @@
-h1 {
-  color: tomato;
+body {
+  margin: 0px;
+}
+#nav {
+  font-family: 'Cabin', sans-serif;
+  font-size: 40px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 167.5px;
+  position: fixed;
+  width: 180px;
+  height: 675px;
+  border-top: 4px black solid;
+  border-right: 4px black solid;
+  border-bottom: 4px black solid;
+  border-radius: 0px 25px 25px 0px;
+  overflow:hidden;
+  .image-container {
+    position: relative;
+    background-color: #ff0000;
+    width: 100%;
+    height: 25%;
+    border-bottom: 2px black solid;
+
+  }
+  .image {
+    position:relative;
+    margin: auto auto auto auto;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    border: 2px black solid;
+    top:23px;
+  /* width and height can be anything, as long as they're equal */
+  }
+  .nav-button {
+    background-color: #ff0000;
+    position: relative;
+    width: 100%;
+    height: 25%;
+    border: 0 0 5px 0px;
+    border-bottom: 3px black solid;
+  }
+  .nav-button:hover {
+    background-color: #990000;
+    color: #666699;
+  }
 }
