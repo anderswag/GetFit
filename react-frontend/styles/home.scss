@@ -1,48 +1,69 @@
 body {
   margin: 0px;
+  background-image: url('http://fullhdpictures.com/wp-content/uploads/2016/02/Cliff-Wallpaper-HD.jpg')
 }
 #nav {
   font-family: 'Cabin', sans-serif;
-  font-size: 40px;
+  font-size: 25px;
+  font-weight:100;
+  box-shadow: 2px 2px 6px 0 #555;
   text-align: center;
   vertical-align: middle;
   line-height: 167.5px;
   position: fixed;
-  width: 180px;
-  height: 675px;
-  border-top: 4px black solid;
-  border-right: 4px black solid;
-  border-bottom: 4px black solid;
-  border-radius: 0px 25px 25px 0px;
-  overflow:hidden;
-  .image-container {
-    position: relative;
-    background-color: #ff0000;
-    width: 100%;
-    height: 25%;
-    border-bottom: 2px black solid;
+  left:0;
+  width: 140px;
+  height: 100%;
+  background-color:#2c2c31;
+  color:#1db9b7;
 
-  }
-  .image {
-    position:relative;
-    margin: auto auto auto auto;
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    border: 2px black solid;
-    top:23px;
-  /* width and height can be anything, as long as they're equal */
+  .image-container {
+    height:140px;
+    .image {
+      width: 100px;
+      height: 100px;
+      -moz-border-radius: 50px;
+      -webkit-border-radius: 50px;
+      border-radius: 50px;
+      background-image:url('https://thumbs.dreamstime.com/z/young-woman-eating-vegetable-salad-isolated-white-background-29713369.jpg');
+      margin: 0 auto;
+      position: relative;
+      top: 17px;
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .image:hover {
+      box-shadow: 2px 2px 6px 0 #555;
+    }
   }
   .nav-button {
-    background-color: #ff0000;
-    position: relative;
-    width: 100%;
-    height: 25%;
-    border: 0 0 5px 0px;
-    border-bottom: 3px black solid;
+    height:140px;
+    width:100%;
+    border-top:1px solid black;
   }
   .nav-button:hover {
-    background-color: #990000;
-    color: #666699;
+    background: linear-gradient(180deg, #565656, #2c2c31);
+    background-size: 400% 400%;
+
+    -webkit-animation: AnimationName 2s ease infinite ;
+    -moz-animation: AnimationName 2s ease infinite ;
+    animation: AnimationName 2s ease infinite;
+
+    @-webkit-keyframes AnimationName {
+        0%{background-position:0% 92%}
+        50%{background-position:100% 9%}
+        100%{background-position:0% 92%}
+    }
+    @-moz-keyframes AnimationName {
+        0%{background-position:0% 92%}
+        50%{background-position:100% 9%}
+        100%{background-position:0% 92%}
+    }
+    @keyframes AnimationName {
+        0%{background-position:0% 92%}
+        50%{background-position:100% 9%}
+        100%{background-position:0% 92%}
+    }
+    box-shadow: 0 4px 9px -2px #0f0f10;
   }
 }
