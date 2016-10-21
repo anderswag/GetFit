@@ -3,9 +3,20 @@
 <link href="https://fonts.googleapis.com/css?family=Cabin:400,500" rel="stylesheet">
 <head>
     <meta charset="UTF-8">
-    <title>Hello React</title>
+    <title>GitFit-The fitness networking app</title>
 </head>
 <body>
+<script src="./FBAuth.js"> </script>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHOvV774rjhHzvhXhxvy4TBk5xNsXgynA&libraries=places"></script>
+
+<!--
+  Below we include the Login Button social plugin. This button uses
+  the JavaScript SDK to present a graphical Login button that triggers
+  the FB.login() function when clicked.
+-->
+  <input id="searchInput" class="controls" type="text" placeholder="Enter a location">
+  <div class="fb-login-button" data-max-rows="4" data-size="large"  data-auto-logout-link="true"></div>
+
   <div id="react-root"></div>
   <script src="/build/bundle.js"></script>
 </body>
