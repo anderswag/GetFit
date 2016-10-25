@@ -21,13 +21,10 @@ class App extends Component {
     super(props);
     this.state =  {
       mentors:[],
-      var data = {
-        firstName:'',
-        lastName :'',
-        gym      :''
-      }
-    return {data: data}
-    };
+      firstName:'',
+      lastName :'',
+      gym      :''
+    }
   }
 
 
@@ -49,7 +46,7 @@ class App extends Component {
         lastName :'',
         gym      :`${event.target.value}`
       }, function whenFinished(){
-        console.log(this.state)
+          console.log(this.state)
       })
     }
   }
@@ -65,9 +62,6 @@ class App extends Component {
           <TableExampleSimple mentorList={this.state.mentors} />
         </MuiThemeProvider>
         <Geosuggest onKeyPress={this.handleEnter.bind(this)}/>
-          <MuiThemeProvider>
-            <CircularProgressExampleDeterminate/>
-          </MuiThemeProvider>
       </div>
     );
   }
