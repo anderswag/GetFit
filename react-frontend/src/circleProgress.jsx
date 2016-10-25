@@ -15,7 +15,7 @@ export default class CircularProgressExampleDeterminate extends React.Component 
   }
 
   componentDidMount() {
-    this.timer = setTimeout(() => this.progress(5), 1000);
+    this.timer = setTimeout(() => this.progress(0), 1000);
   }
 
   componentWillUnmount() {
@@ -24,11 +24,11 @@ export default class CircularProgressExampleDeterminate extends React.Component 
 
   progress(completed) {
     if (completed > 100) {
-      this.setState({completed: 100});
+      this.setState({completed: 82});
     } else {
       this.setState({completed});
       const diff = Math.random() * 10;
-      this.timer = setTimeout(() => this.progress(completed + diff), 1000);
+      this.timer = setTimeout(() => this.progress(completed + diff), 30);
     }
   }
 
@@ -39,7 +39,7 @@ export default class CircularProgressExampleDeterminate extends React.Component 
           mode="determinate"
           value={this.state.completed}
           size={280}
-          thickness={9}
+          thickness={7}
         />
       </div>
     );

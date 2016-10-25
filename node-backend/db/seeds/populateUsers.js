@@ -12,7 +12,8 @@ exports.seed = function(knex, Promise) {
           username: 'Testuser1',
           email: 'Rawwwwrr@hotmail.com',
           password: '1234',
-          picture:'http://gummymall.com/image/cache/data/kalimuscle/km_moneyandmuscle_tank_black-700x700.jpg'
+          picture:'http://gummymall.com/image/cache/data/kalimuscle/km_moneyandmuscle_tank_black-700x700.jpg',
+          gym:'Goodlife Fitness'
         }),
         knex('users').insert({
           id: 2,
@@ -21,7 +22,8 @@ exports.seed = function(knex, Promise) {
           username: 'Testuser2',
           email: 'Rrdfr@hotmail.com',
           password: '1234',
-          picture:'https://cdn.shopify.com/s/files/1/0158/2502/t/23/assets/bg_newsletter.jpg?15889536651861050936'
+          picture:'https://cdn.shopify.com/s/files/1/0158/2502/t/23/assets/bg_newsletter.jpg?15889536651861050936',
+          gym:'Goodlife Fitness'
         }),
         knex('users').insert({
           id: 3,
@@ -30,7 +32,8 @@ exports.seed = function(knex, Promise) {
           username: 'Testuser3',
           email: 'Rawwwasdfasdfasdfafadfsfwrr@hotmail.com',
           password: '1234',
-          picture:'http://fullhdpictures.com/wp-content/uploads/2016/08/Fitness-Girl-Desktop.jpg'
+          picture:'http://fullhdpictures.com/wp-content/uploads/2016/08/Fitness-Girl-Desktop.jpg',
+          gym:'Goodlife Fitness'
         }),
         knex('users').insert({
           id: 4,
@@ -39,7 +42,8 @@ exports.seed = function(knex, Promise) {
           username: 'Testuser4',
           email: 'Rumxlover@hotmail.com',
           password: '1234',
-          picture:'https://pbs.twimg.com/profile_images/714839430238969857/L8A9XPFX.jpg'
+          picture:'https://pbs.twimg.com/profile_images/714839430238969857/L8A9XPFX.jpg',
+          gym:'Goodlife Fitness'
         }),
         knex('users').insert({
           id: 5,
@@ -48,7 +52,8 @@ exports.seed = function(knex, Promise) {
           username: 'Testuser5',
           email: 'saladlover@hotmail.com',
           password: '1234',
-          picture:'https://thumbs.dreamstime.com/z/young-woman-eating-vegetable-salad-isolated-white-background-29713369.jpg'
+          picture:'https://thumbs.dreamstime.com/z/young-woman-eating-vegetable-salad-isolated-white-background-29713369.jpg',
+          gym:'Goodlife Fitness'
         })
       ]);
     });

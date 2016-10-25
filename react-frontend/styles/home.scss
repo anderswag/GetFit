@@ -18,7 +18,7 @@ body {
   text-align: center;
   vertical-align: middle;
   line-height: 167.5px;
-  position: fixed;
+  position: absolute;
   left:0;
   width: 140px;
   height: 100%;
@@ -74,4 +74,17 @@ body {
     }
     box-shadow: 0 4px 9px -2px #0f0f10;
   }
+}
+
+.mentor-list {
+  width: 640px;
+  height: 100%;
+  background-color: #E91E63;
+  margin: 0 auto;
+  position:relative;
+  top:200px;
+}
+.statcircle {
+  position:absolute;
+  right:10px;
 }
