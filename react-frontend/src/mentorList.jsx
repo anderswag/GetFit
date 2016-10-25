@@ -24,6 +24,7 @@ export default class TableExampleSimple extends React.Component {
           <TableHeaderColumn>Picture</TableHeaderColumn>
           <TableHeaderColumn>Name</TableHeaderColumn>
           <TableHeaderColumn>Status</TableHeaderColumn>
+          <TableHeaderColumn>Score</TableHeaderColumn>
         </TableRow>
       </TableHeader>
         <TableBody>
@@ -32,6 +33,7 @@ export default class TableExampleSimple extends React.Component {
           <TableRowColumn><img src={item.picture} height="42" width="42"/></TableRowColumn>
           <TableRowColumn>{item.first_name} {item.last_name}</TableRowColumn>
           <TableRowColumn>Employed</TableRowColumn>
+          <TableRowColumn>{item.score}</TableRowColumn>
           </TableRow>
       ))}
         </TableBody>

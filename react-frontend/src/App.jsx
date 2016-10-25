@@ -24,19 +24,12 @@ class App extends Component {
       firstName:'',
       lastName :'',
       gym      :''
+
     }
   }
 
 
   componentDidMount() {
-    fetch('http://localhost:8080/api/users').then(function(response) {
-      // Convert to JSON
-      return response.json();
-    }).then((j) => {
-      // Yay, `j` is a JavaScript object
-      console.log(j)
-      this.setState({mentors:j})
-    });
   }
 
   handleEnter(event) {
@@ -46,7 +39,14 @@ class App extends Component {
         lastName :'',
         gym      :`${event.target.value}`
       }, function whenFinished(){
-          console.log(this.state)
+        fetch(`http://localhost:8080/api/relevent-mentors?gym=${this.state.gym}`).then(function(response) {
+      // Convert to JSON
+      return response.json();
+    }).then((j) => {
+      // Yay, `j` is a JavaScript object
+      console.log(j)
+      this.setState({mentors:j})
+    });
       })
     }
   }
@@ -55,13 +55,13 @@ class App extends Component {
     return (
       <div>
         <NavBar/>
+        <Geosuggest onKeyPress={this.handleEnter.bind(this)}/>
         <MuiThemeProvider>
           <CircularProgressExampleDeterminate/>
         </MuiThemeProvider>
         <MuiThemeProvider>
           <TableExampleSimple mentorList={this.state.mentors} />
         </MuiThemeProvider>
-        <Geosuggest onKeyPress={this.handleEnter.bind(this)}/>
       </div>
     );
   }
