@@ -3,7 +3,11 @@ import NavBar from './navbar.jsx';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import CircularProgressExampleDeterminate from './circleProgress.jsx';
+
 import TableExampleSimple from './mentorList.jsx';
+
+
+import Geosuggest from 'react-geosuggest';
 
 
 injectTapEventPlugin();
@@ -12,12 +16,20 @@ var autocomplete = new google.maps.places.Autocomplete(input);
 
 class App extends Component {
 
+
   constructor(props){
     super(props);
     this.state =  {
-      mentors:[]
+      mentors:[],
+      var data = {
+        firstName:'',
+        lastName :'',
+        gym      :''
+      }
+    return {data: data}
     };
   }
+
 
   componentDidMount() {
     fetch('http://localhost:8080/api/users').then(function(response) {
@@ -30,6 +42,18 @@ class App extends Component {
     });
   }
 
+  handleEnter(event) {
+    if(event.key === 'Enter') {
+      this.setState({
+        firstName:'',
+        lastName :'',
+        gym      :`${event.target.value}`
+      }, function whenFinished(){
+        console.log(this.state)
+      })
+    }
+  }
+
   render() {
     return (
       <div>
@@ -40,6 +64,10 @@ class App extends Component {
         <MuiThemeProvider>
           <TableExampleSimple mentorList={this.state.mentors} />
         </MuiThemeProvider>
+        <Geosuggest onKeyPress={this.handleEnter.bind(this)}/>
+          <MuiThemeProvider>
+            <CircularProgressExampleDeterminate/>
+          </MuiThemeProvider>
       </div>
     );
   }

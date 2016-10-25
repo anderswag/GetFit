@@ -1,0 +1,16 @@
+motivational quote = [
+  '"If you want to achieve greatness stop asking for permission." --Anonymous',
+  '"Things work out best for those who make the best of how things work out." --John Wooden',
+  '"To live a creative life, we must lose our fear of being wrong." --Anonymous',
+  '"If you are not willing to risk the usual you will have to settle for the ordinary." --Jim Rohn',
+  '"All our dreams can come true if we have the courage to pursue them." --Walt Disney',
+  '"Good things come to people who wait, but better things come to those who go out and get them." --Anonymous',
+  '"If you do what you always did, you will get what you always got." --Anonymous',
+  '"Success is walking from failure to failure with no loss of enthusiasm." --Winston Churchill',
+  '"No one can make you feel inferior without your consent." --Eleanor Roosevelt',
+  '"If you are going through hell keep going." --Winston Churchill',
+  '"What seems to us as bitter trials are often blessings in disguise." --Oscar Wilde',
+  ' "No masterpiece was ever created by a lazy artist." --Anonymous',
+  '"Veni, vidi, vici" --Gaius Julius Caesar',
+  '"Carpe Diem" -- Anonymous',
+]
