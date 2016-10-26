@@ -2,14 +2,16 @@ body {
   margin: 0px;
   background-image: url('http://fullhdpictures.com/wp-content/uploads/2016/02/Cliff-Wallpaper-HD.jpg')
 }
+
 .geosuggest {
   font-size: 18px;
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
   position: relative;
   width: 50%;
-  margin: 1em auto;
   text-align: left;
+  left:300px;
+  top:100px;
 }
 .geosuggest__input {
   font-family: 'Roboto', sans-serif;
@@ -138,7 +140,7 @@ body {
 }
 
 .mentor-list {
-  width: 640px;
+  width: 800px;
   height: 100%;
   background-color: #E91E63;
   margin: 0 auto;
@@ -148,4 +150,7 @@ body {
 .statcircle {
   position:absolute;
   right:10px;
+}
+.rowStyle {
+  height:120px!important;
 }
