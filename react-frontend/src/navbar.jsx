@@ -27,6 +27,7 @@ class NavBar extends Component {
           <div className="nav-button" id="nav-button-1"><Link to="/find">FIND</Link></div>
           <div className="nav-button" id="nav-button-2">STATS</div>
           <div className="nav-button" id="nav-button-3">SETTINGS</div>
+          {this.props.children}
         </div>
     );
   }

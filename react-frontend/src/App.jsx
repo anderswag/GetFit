@@ -5,7 +5,7 @@ import CircularProgressExampleDeterminate from './circleProgress.jsx';
 
 import TableExampleSimple from './mentorList.jsx';
 import Geosuggest from 'react-geosuggest';
-import navBar from './navbar.jsx';
+import NavBar from './navbar.jsx';
 
 injectTapEventPlugin();
 var input = document.getElementById('searchInput');
@@ -51,7 +51,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <navBar/>
+        <NavBar/>
       </div>
     );
   }
