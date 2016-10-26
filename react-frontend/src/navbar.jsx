@@ -1,6 +1,6 @@
 'use strict'
 import React, {Component} from 'react';
-import App from './App.jsx';
+import { Link } from 'react-router';
 console.log("rendering <NavBar/>");
 
 
@@ -24,9 +24,9 @@ class NavBar extends Component {
           <div className="image-container">
             <div className="image"></div>
           </div>
-          <div className="nav-button" id="nav-button-1">FIND</div>
+          <Link to="/find"><div className="nav-button" id="nav-button-1">Find</div></Link>
           <div className="nav-button" id="nav-button-2">STATS</div>
-          <div className="nav-button" id="nav-button-3">SETTINGS</div>
+          <Link to="/settings"><div className="nav-button" id="nav-button-3">SETTINGS</div></Link>
         </div>
     );
   }
