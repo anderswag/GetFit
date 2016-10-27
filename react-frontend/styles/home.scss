@@ -9,8 +9,9 @@ body {
   font-family: 'Roboto', sans-serif;
   position: relative;
   width: 50%;
-  margin: 1em auto;
   text-align: left;
+  left:300px;
+  top:100px;
 }
 .geosuggest__input {
   font-family: 'Roboto', sans-serif;
@@ -149,4 +150,17 @@ body {
 .statcircle {
   position:absolute;
   right:10px;
+}
+.rowStyle {
+  height:120px!important;
+}
+
+.login-form {
+  position: relative;
+  top: 30px;
+  left: 150px;
+  width: 150px;
+  .geosuggest {
+    width: 300px;
+  }
 }

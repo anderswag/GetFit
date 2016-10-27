@@ -24,10 +24,9 @@ class NavBar extends Component {
           <div className="image-container">
             <div className="image"></div>
           </div>
-          <div className="nav-button" id="nav-button-1"><Link to="/find">FIND</Link></div>
+          <Link to="/find"><div className="nav-button" id="nav-button-1">Find</div></Link>
           <div className="nav-button" id="nav-button-2">STATS</div>
-          <div className="nav-button" id="nav-button-3">SETTINGS</div>
-          {this.props.children}
+          <Link to="/settings"><div className="nav-button" id="nav-button-3">SETTINGS</div></Link>
         </div>
     );
   }
