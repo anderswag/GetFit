@@ -27,7 +27,6 @@ class NavBar extends Component {
           <Link to="/find"><div className="nav-button" id="nav-button-1">Find</div></Link>
           <div className="nav-button" id="nav-button-2">STATS</div>
           <Link to="/settings"><div className="nav-button" id="nav-button-3">SETTINGS</div></Link>
-          {this.props.children}
         </div>
     );
   }

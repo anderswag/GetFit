@@ -154,3 +154,15 @@ body {
 .rowStyle {
   height:120px!important;
 }
+
+
+.login-form {
+  position: relative;
+  top: 30px;
+  left: 150px;
+  width: 150px;
+  .geosuggest {
+    width: 300px;
+  }
+}
+
