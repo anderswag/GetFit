@@ -53,12 +53,12 @@ class findModule extends Component {
   render() {
     return (
         <div>
-          <Geosuggest/>
+          <Geosuggest onKeyPress={this.handleEnter.bind(this)}/>
           <MuiThemeProvider>
             <CircularProgressExampleDeterminate/>
           </MuiThemeProvider>
           <MuiThemeProvider>
-            <TableExampleSimple mentorList={this.state.mentors} />
+            <TableExampleSimple style={this.state.showlist} mentorList={this.state.mentors} />
           </MuiThemeProvider>
         </div>
     );
