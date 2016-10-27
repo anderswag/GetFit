@@ -11,13 +11,17 @@ export default class TableExampleSimple extends React.Component {
     this.state = {
       completed: 0,
     };
+
+    this.handleClick = this.handleClick.bind(this);
   }
 
-
+  handleClick() {
+    console.log(event.target.value);
+  }
 
   render() {
     return (
-      <div className = "mentor-list">
+      <div className = "mentor-list" style={this.props.style}>
       <Table>
       <TableHeader>
         <TableRow>
@@ -27,16 +31,16 @@ export default class TableExampleSimple extends React.Component {
           <TableHeaderColumn>Score</TableHeaderColumn>
         </TableRow>
       </TableHeader>
-        <TableBody>
-      {this.props.mentorList.map((item,index)=>(
-          <TableRow key={index}>
-          <TableRowColumn><img src={item.picture} height="42" width="42"/></TableRowColumn>
+      <TableBody>
+        {this.props.mentorList.map((item,index)=>(
+        <TableRow className ="rowStyle" value={item} key={index} onRowClick={(ev, row) => console.log('row')}>
+          <TableRowColumn><img src={item.picture} height="90" width="90"/></TableRowColumn>
           <TableRowColumn>{item.first_name} {item.last_name}</TableRowColumn>
           <TableRowColumn>Employed</TableRowColumn>
           <TableRowColumn>{item.score}</TableRowColumn>
-          </TableRow>
+        </TableRow>
       ))}
-        </TableBody>
+      </TableBody>
       </Table>
 
       </div>
