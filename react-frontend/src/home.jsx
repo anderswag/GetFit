@@ -62,6 +62,7 @@ class home extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
+
       },
       body: JSON.stringify({
         login_username: this.state.login_username,
@@ -74,17 +75,6 @@ class home extends Component {
     .then(function(blob){
       console.log(blob)
     })
-    // if(this.state.login_username ===) {
-    //   if (this.state.login_password ===) {
-
-    //   }
-    //   else {
-    //     alert("Incorrect username or password.")
-    //   }
-    // }
-    // else {
-    //   alert("Incorrect username or password.")
-    // }
   }
 }
 
