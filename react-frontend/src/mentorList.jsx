@@ -9,20 +9,21 @@ export default class TableExampleSimple extends React.Component {
     super(props);
 
     this.state = {
-      completed: 0,
+      submitReady:false,
+      selectedMentor:null
     };
-
-    this.handleClick = this.handleClick.bind(this);
+    this.setSelectedMentor = this.setSelectedMentor.bind(this);
   }
 
-  handleClick() {
-    console.log(event.target.value);
+  setSelectedMentor(mentor) {
+    this.selectedMentor = this.props.mentorList[mentor]
+    console.log(this.selectedMentor)
   }
 
   render() {
     return (
       <div className = "mentor-list" style={this.props.style}>
-      <Table>
+      <Table onCellClick={this.setSelectedMentor}>
       <TableHeader>
         <TableRow>
           <TableHeaderColumn>Picture</TableHeaderColumn>
@@ -33,7 +34,7 @@ export default class TableExampleSimple extends React.Component {
       </TableHeader>
       <TableBody>
         {this.props.mentorList.map((item,index)=>(
-        <TableRow className ="rowStyle" value={item} key={index} onRowClick={(ev, row) => console.log('row')}>
+        <TableRow className ="rowStyle" value={item} key={index}>
           <TableRowColumn><img src={item.picture} height="90" width="90"/></TableRowColumn>
           <TableRowColumn>{item.first_name} {item.last_name}</TableRowColumn>
           <TableRowColumn>Employed</TableRowColumn>

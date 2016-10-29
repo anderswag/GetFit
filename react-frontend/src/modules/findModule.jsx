@@ -1,13 +1,14 @@
 'use strict'
 import React, {Component} from 'react';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+// import injectTapEventPlugin from 'react-tap-event-plugin';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import CircularProgressExampleDeterminate from '../circleProgress.jsx';
+// import CircularProgressExampleDeterminate from '../circleProgress.jsx';
 import TableExampleSimple from '../mentorList.jsx';
 import Geosuggest from 'react-geosuggest';
+import { browserHistory } from 'react-router'
 console.log("rendering <findModule/>");
 
-injectTapEventPlugin();
+// injectTapEventPlugin();
 var input = document.getElementById('searchInput');
 var autocomplete = new google.maps.places.Autocomplete(input);
 
@@ -24,7 +25,11 @@ class findModule extends Component {
   }
 
   componentDidMount() {
-
+    if(!localStorage.getItem("token")){
+      browserHistory.push('/');
+    } else {
+      console.log('YOU HAVE A TOKEN!');
+    }
   }
 
   handleEnter(event) {
@@ -53,12 +58,12 @@ class findModule extends Component {
   render() {
     return (
         <div>
-          <Geosuggest onKeyPress={this.handleEnter.bind(this)}/>
+          <div className="findGeo">
+            <Geosuggest onKeyPress={this.handleEnter.bind(this)}/>
+          </div>
+
           <MuiThemeProvider>
-            <CircularProgressExampleDeterminate/>
-          </MuiThemeProvider>
-          <MuiThemeProvider>
-            <TableExampleSimple mentorList={this.state.mentors} />
+            <TableExampleSimple style={this.state.showlist} mentorList={this.state.mentors} />
           </MuiThemeProvider>
         </div>
     );

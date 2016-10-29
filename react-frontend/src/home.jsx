@@ -5,9 +5,19 @@ import Geosuggest from 'react-geosuggest';
 const input = document.getElementById('searchInput');
 const autocomplete = new google.maps.places.Autocomplete(input);
 
-
-
 class home extends Component {
+
+  constructor(props) {
+    super(props);
+    this.tokenHandler = this.tokenHandler.bind(this);
+  }
+  componentDidMount() {
+    if(!localStorage.getItem("token")){
+      window.location = "localhost:3005/#/";
+    } else {
+      console.log('YOU HAVE A TOKEN!');
+    }
+  }
 
   render() {
     return (
@@ -21,7 +31,7 @@ class home extends Component {
           <input type="password" name="password" onChange={(event) => this.setState({ password: event.target.value })} placeholder="password"/>
           <input type="password" name="confirm_password" onChange={(event) => this.setState({ confirm_password: event.target.value })} placeholder="confirm password"/>
           <Geosuggest type="text" onSuggestSelect={(suggest) => this.setState({gym: suggest.label})}/>
-          <input type="submit" value="submit"/>
+          <input className="registerSubmit" type="submit" value="submit"/>
         </form>
       </div>
       <div className="login-form">
@@ -33,6 +43,13 @@ class home extends Component {
       </div>
     </div>
     )
+  }
+
+  tokenHandler = (token) => {
+    localStorage.setItem("token", token);
+    this.setState({
+      stateToken: token
+    })
   }
 
   submitRegister = (e) => {
@@ -53,8 +70,15 @@ class home extends Component {
           gym       : this.state.gym
         })
       })
+      .then((response)=>{
+        return response.json()
+      })
+      .then((registerResponse)=>{
+        this.tokenHandler(registerResponse.token);
+      })
     }
   }
+
   submitLogin = (e) => {
     e.preventDefault()
     fetch('http://localhost:8080/api/login', {
@@ -72,8 +96,9 @@ class home extends Component {
     .then(function(response){
       return response.json()
     })
-    .then(function(blob){
-      console.log(blob)
+    .then((loginResponse) => {
+      // console.log(loginResponse.token)
+      this.tokenHandler(loginResponse.token);
     })
   }
 }

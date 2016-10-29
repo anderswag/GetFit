@@ -38,8 +38,9 @@ export default class CircularProgressExampleDeterminate extends React.Component 
         <CircularProgress
           mode="determinate"
           value={this.state.completed}
-          size={280}
-          thickness={7}
+          size={110}
+          thickness={5}
+          color="#FF9800"
         />
       </div>
     );
