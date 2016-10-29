@@ -1,24 +1,27 @@
 body {
   margin: 0px;
-  background-image: url('http://fullhdpictures.com/wp-content/uploads/2016/02/Cliff-Wallpaper-HD.jpg')
+  background-image: url('http://fullhdpictures.com/wp-content/uploads/2016/02/Cliff-Wallpaper-HD.jpg');
 }
-
+a {
+   text-decoration: none;
+   color:inherit;
+}
 .geosuggest {
-  font-size: 18px;
-  font-size: 1rem;
-  font-family: 'Roboto', sans-serif;
+  // font-size: 18px;
+  // font-size: 1rem;
+  // font-family: 'Roboto', sans-serif;
   position: relative;
-  width: 50%;
-  text-align: left;
-  left:300px;
-  top:100px;
+  // width: 50%;
+  // text-align: left;
+  // left:300px;
+  // top:100px;
 }
 .geosuggest__input {
   font-family: 'Roboto', sans-serif;
   width: 100%;
   border: 2px solid transparent;
   box-shadow: 0 0 1px #3d464d;
-  padding: .5em 1em;
+  // padding: .5em 1em;
   -webkit-transition: border 0.2s, box-shadow 0.2s;
           transition: border 0.2s, box-shadow 0.2s;
 }
@@ -138,36 +141,59 @@ body {
     box-shadow: 0 4px 9px -2px #0f0f10;
   }
 }
-
+.findGeo {
+  position: relative;
+  width: 560px;
+  margin: 0 auto;
+  height:50px;
+}
 .mentor-list {
   width: 800px;
-  height: 100%;
+  height: 540px;
   background-color: #E91E63;
   margin: 0 auto;
-  position:relative;
-  top:200px;
+  position: relative;
+  top: 170px;
+  overflow: scroll;
 }
 .statcircle {
   position:absolute;
-  right:10px;
+  right: 15px;
+  top: 12px;
 }
 .rowStyle {
   height:120px!important;
 }
-
-
 .register-form {
-  position: relative;
-  top: 30px;
-  left: 150px;
-  width: 150px;
-  .geosuggest {
-    width: 300px;
+  // position: relative;
+  // top: 30px;
+  // left: 150px;
+  width: 500px;
+  height: 300px;
+  display: block;
+  margin:0 auto;
+  input{
+    width:100%;
+    height:30px;
+    display:inline-block;
+    margin-top:7px;
   }
+  // .registerSubmit {
+  //   width:100%;
+  //   height:30px;
+  // }
 }
 .login-form {
   position: relative;
   top: 30px;
   left: 150px;
   width: 150px;
+}
+input[type="submit"]{
+  border: 0;
+  background: none;
+  box-shadow:none;
+  border-radius: 0px;
+  background-color:#FF9800;
+  float:right;
 }

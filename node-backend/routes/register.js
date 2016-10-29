@@ -2,6 +2,8 @@
 
 const express = require('express');
 const router  = express.Router();
+const jwt = require('jsonwebtoken');
+const secureValue = "shhhhhhhhhh"
 
 module.exports = (knex) => {
 
@@ -17,8 +19,27 @@ module.exports = (knex) => {
       picture: req.body.picture
       })
       .then((results) => {
-        console.log(results)
-        res.json(results);
+        knex('users').where({
+          username: req.body.username,
+          email: req.body.email
+        }).select('*')
+          .then((results) => {
+            if(results.length === 0) {
+              res.status(401)
+              return
+            }
+            results = results[0];
+            res.json({
+              user:results,
+              token: jwt.sign({id: results.id}, secureValue)
+            })
+          })
+        // results = results[0];
+        // res.json({
+        //   user:results,
+        //   token: jwt.sign({id: results.id}, secureValue)
+        // });
+        console.log(results);
     });
   });
 

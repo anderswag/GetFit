@@ -46,7 +46,6 @@
   },
   "dependencies": {
     "material-ui": "^0.16.1",
-    "passport-local": "^2.1.1",
     "react": "15.2.1",
     "react-dom": "15.2.1",
     "react-geosuggest": "^2.0.0",
