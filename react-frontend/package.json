@@ -49,6 +49,7 @@
     "react": "15.2.1",
     "react-dom": "15.2.1",
     "react-geosuggest": "^2.0.0",
+    "react-notification-system": "^0.2.10",
     "react-tap-event-plugin": "^1.0.0"
   }
 }

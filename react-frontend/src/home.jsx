@@ -3,20 +3,14 @@ import React, {Component} from 'react';
 console.log("rendering <home/>");
 import Geosuggest from 'react-geosuggest';
 const input = document.getElementById('searchInput');
+import { browserHistory } from 'react-router'
+var Router = require('react-router');
 const autocomplete = new google.maps.places.Autocomplete(input);
-
 class home extends Component {
 
   constructor(props) {
     super(props);
     this.tokenHandler = this.tokenHandler.bind(this);
-  }
-  componentDidMount() {
-    if(!localStorage.getItem("token")){
-      window.location = "localhost:3005/#/";
-    } else {
-      console.log('YOU HAVE A TOKEN!');
-    }
   }
 
   render() {
@@ -46,10 +40,13 @@ class home extends Component {
   }
 
   tokenHandler = (token) => {
+    debugger
     localStorage.setItem("token", token);
     this.setState({
       stateToken: token
     })
+    this.props.router.push('/find')
+    // Router.browserHistory.push('/#/find')
   }
 
   submitRegister = (e) => {
@@ -70,10 +67,10 @@ class home extends Component {
           gym       : this.state.gym
         })
       })
-      .then((response)=>{
+      .then((response) => {
         return response.json()
       })
-      .then((registerResponse)=>{
+      .then((registerResponse) => {
         this.tokenHandler(registerResponse.token);
       })
     }
@@ -97,7 +94,6 @@ class home extends Component {
       return response.json()
     })
     .then((loginResponse) => {
-      // console.log(loginResponse.token)
       this.tokenHandler(loginResponse.token);
     })
   }

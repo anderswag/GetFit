@@ -9,7 +9,10 @@ module.exports = (knex) => {
     console.log(req.query.gym)
 
     knex
-      .where('gym', req.query.gym)
+      .where({
+        gym: req.query.gym,
+        mentor: true,
+      })
       .select("*")
       .from("users")
       .then((results) => {
