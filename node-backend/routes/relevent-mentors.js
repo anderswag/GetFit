@@ -11,7 +11,6 @@ module.exports = (knex) => {
     knex
       .where({
         gym: req.query.gym,
-        mentor: true,
       })
       .select("*")
       .from("users")
