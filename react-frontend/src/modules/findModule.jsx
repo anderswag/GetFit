@@ -11,6 +11,9 @@ console.log("rendering <findModule/>");
 // injectTapEventPlugin();
 var input = document.getElementById('searchInput');
 var autocomplete = new google.maps.places.Autocomplete(input);
+const io = require('socket.io-client');
+import socket from '../socketConnection';
+// const socket = io.connect('http://localhost:8080', {reconnect: true});
 
 class findModule extends Component {
   constructor(props){
@@ -20,7 +23,8 @@ class findModule extends Component {
       firstName:'',
       lastName :'',
       gym      :'',
-      showlist :{display:'none'}
+      showlist :{display:'none'},
+      selected : ''
     }
   }
 
@@ -30,6 +34,10 @@ class findModule extends Component {
     } else {
       console.log('YOU HAVE A TOKEN!');
     }
+  }
+
+  sendRequest(reqObj) {
+    socket.emit('client::message', reqObj);
   }
 
   handleEnter(event) {
@@ -55,15 +63,16 @@ class findModule extends Component {
     }
   }
 
+
+
   render() {
     return (
         <div>
           <div className="findGeo">
             <Geosuggest onKeyPress={this.handleEnter.bind(this)}/>
           </div>
-
           <MuiThemeProvider>
-            <TableExampleSimple style={this.state.showlist} mentorList={this.state.mentors} />
+            <TableExampleSimple style={this.state.showlist} mentorList={this.state.mentors} socket={this.sendRequest}/>
           </MuiThemeProvider>
         </div>
     );

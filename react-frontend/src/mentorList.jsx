@@ -16,8 +16,9 @@ export default class TableExampleSimple extends React.Component {
   }
 
   setSelectedMentor(mentor) {
+    // this.props.select(this.props.mentorList[mentor])
     this.selectedMentor = this.props.mentorList[mentor]
-    console.log(this.selectedMentor)
+    // console.log(this.selectedMentor)
   }
 
   render() {
@@ -43,8 +44,10 @@ export default class TableExampleSimple extends React.Component {
       ))}
       </TableBody>
       </Table>
-
+        <div className="sendRequest" onClick={()=> this.props.socket(this.selectedMentor)}>
+        Let's go
+        </div>
       </div>
       );
-}
+  }
 }

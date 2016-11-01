@@ -33,6 +33,10 @@ class NavBar extends Component {
 
   }
 
+  componentDidMount() {
+
+  }
+
   render() {
     return (
         <div id="nav">
@@ -40,7 +44,7 @@ class NavBar extends Component {
             <CircularProgressExampleDeterminate/>
           </MuiThemeProvider>
           <div className="image-container">
-            <div className="image"></div>
+            <img src="" className="image"/>
           </div>
           <Link to="/find"><div className="nav-button" id="nav-button-1"><i className="fa fa-search fa-2x" aria-hidden="true"></i></div></Link>
           <div className="nav-button" id="nav-button-2"><i className="fa fa-bar-chart fa-2x" aria-hidden="true"></i></div>

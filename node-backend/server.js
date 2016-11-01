@@ -14,11 +14,22 @@ const knex        = require("knex")(knexConfig[ENV]);
 const morgan      = require('morgan');
 const knexLogger  = require('knex-logger');
 
+
 // Seperated Routes for each Resource
 const usersRoutes = require("./routes/users");
 const releventMentorRoutes = require("./routes/relevent-mentors");
 const registerRoutes = require("./routes/register");
 const loginRoutes = require("./routes/login");
+const sendNotification = require("./routes/sendNotification");
+
+//SOCKET START
+
+
+
+
+// Load requirements
+const http = require('http');
+const socketIO = require('socket.io');
 
 // Load the logger first so all (static) HTTP requests are logged to STDOUT
 // 'dev' = Concise output colored by response status for development use.
@@ -51,11 +62,36 @@ app.use("/api/users", usersRoutes(knex));
 app.use("/api/relevent-mentors", releventMentorRoutes(knex));
 app.use("/api/register", registerRoutes(knex));
 app.use("/api/login", loginRoutes(knex));
+app.use("/api/sendNotification", sendNotification(knex));
 // Home page
 app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.listen(PORT, () => {
+// Create server & socket
+const server = http.Server(app)
+const io = socketIO(server)
+
+io.on('connection', function(socket) {
+
+    socket.on('client::message', function (message){
+      // for(let k in io.clients().connected) {
+      //   console.log(k, socket.id, k !== socket.id)
+      //   if(k !== socket.id) {
+      //     console.log("send")
+      //     io.to(k).emit('server::note', message)
+      //   }
+      // }
+      socket.broadcast.emit('server::note', message);
+    })
+    console.log('Client connected.');
+    // Disconnect listener
+    io.on('disconnect', function() {
+        console.log('Client disconnected.');
+    });
+});
+// SOCKET END
+
+server.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
