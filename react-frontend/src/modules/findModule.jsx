@@ -53,11 +53,11 @@ class findModule extends Component {
       return response.json();
       }).then((j) => {
         // Yay, `j` is a JavaScript object
-        console.log(j)
-        this.setState({
-          mentors:j,
-          showlist:{display:'block'}
-        })
+          console.log(j)
+          this.setState({
+            mentors:j,
+            showlist:{display:'block'}
+          })
         });
       })
     }

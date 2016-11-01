@@ -10,7 +10,7 @@ var Notification = React.createClass({
   _addNotification: function(data) {
     // event.preventDefault();
     this._notificationSystem.addNotification({
-      message: 'Notification message',
+      message: data.username,
       level: 'success',
       autoDismiss: 10,
       action:{
@@ -21,7 +21,6 @@ var Notification = React.createClass({
       }
     });
   },
-
   componentDidMount: function() {
     this._notificationSystem = this.refs.notificationSystem;
     var that = this;

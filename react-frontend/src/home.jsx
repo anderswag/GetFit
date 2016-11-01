@@ -22,9 +22,10 @@ class home extends Component {
           <input type="text" name="last_name" onChange={(event) => this.setState({ last_name: event.target.value })} placeholder="last name"/>
           <input type="text" name="username" onChange={(event) => this.setState({ username: event.target.value })} placeholder="username"/>
           <input type="text" name="email" onChange={(event) => this.setState({ email: event.target.value })} placeholder="email"/>
+          <input type="text" name="picture" onChange={(event) => this.setState({picture: event.target.value})} placeholder="profile picture"/>
           <input type="password" name="password" onChange={(event) => this.setState({ password: event.target.value })} placeholder="password"/>
           <input type="password" name="confirm_password" onChange={(event) => this.setState({ confirm_password: event.target.value })} placeholder="confirm password"/>
-          <Geosuggest type="text" onSuggestSelect={(suggest) => this.setState({gym: suggest.label})}/>
+          <Geosuggest type="text" onSuggestSelect={(suggest) => this.setState({gym: suggest.label})} placeholder="select your gym"/>
           <input className="registerSubmit" type="submit" value="submit"/>
         </form>
       </div>
@@ -40,7 +41,6 @@ class home extends Component {
   }
 
   tokenHandler = (token) => {
-    debugger
     localStorage.setItem("token", token);
     this.setState({
       stateToken: token
@@ -63,6 +63,7 @@ class home extends Component {
           last_name : this.state.last_name,
           username  : this.state.username,
           email     : this.state.email,
+          picture   : this.state.picture,
           password  : this.state.password,
           gym       : this.state.gym
         })
