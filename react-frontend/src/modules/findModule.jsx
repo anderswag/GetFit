@@ -34,10 +34,26 @@ class findModule extends Component {
     } else {
       console.log('YOU HAVE A TOKEN!');
     }
+    fetch('http://localhost:8080/api/currentUser', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem("token")
+      }
+    })
+    .then(function(response){
+      return response.json();
+    }).then((j) => {
+      console.log(j[0]);
+      let user = j[0];
+      this.setState({
+        first_name: user.first_name,
+      })
+    })
   }
 
-  sendRequest(reqObj) {
-    socket.emit('client::message', reqObj);
+  sendRequest(reqObj, user) {
+    socket.emit('client::message', [reqObj,user]);
   }
 
   handleEnter(event) {
@@ -72,7 +88,7 @@ class findModule extends Component {
             <Geosuggest onKeyPress={this.handleEnter.bind(this)}/>
           </div>
           <MuiThemeProvider>
-            <TableExampleSimple style={this.state.showlist} mentorList={this.state.mentors} socket={this.sendRequest}/>
+            <TableExampleSimple style={this.state.showlist} mentorList={this.state.mentors} user={this.state.first_name} socket={this.sendRequest}/>
           </MuiThemeProvider>
         </div>
     );

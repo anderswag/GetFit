@@ -21,6 +21,7 @@ const releventMentorRoutes = require("./routes/relevent-mentors");
 const registerRoutes = require("./routes/register");
 const loginRoutes = require("./routes/login");
 const settingsRoutes = require("./routes/settings");
+const currentUserRoutes = require("./routes/currentUser");
 //SOCKET START
 
 
@@ -62,6 +63,7 @@ app.use("/api/relevent-mentors", releventMentorRoutes(knex));
 app.use("/api/register", registerRoutes(knex));
 app.use("/api/login", loginRoutes(knex));
 app.use("/api/settings", settingsRoutes(knex));
+app.use("/api/currentUser", currentUserRoutes(knex));
 // Home page
 app.get("/", (req, res) => {
   res.render("index");
@@ -88,6 +90,9 @@ io.on('connection', function(socket) {
       //   }
       // }
       socket.broadcast.emit('server::note', message);
+    })
+    socket.on('client::accept', function(message){
+      socket.broadcast.emit('server::accept', message)
     })
     console.log('Client connected.');
     // Disconnect listener
