@@ -4,6 +4,8 @@ const express = require('express');
 const router  = express.Router();
 const jwt = require('jsonwebtoken');
 const secureValue = "shhhhhhhhhh"
+const http = require('http');
+const socketIO = require('socket.io');
 
 module.exports = (knex) => {
 
@@ -16,6 +18,8 @@ module.exports = (knex) => {
       .then((results) => {
         res.json(results)
       }) //knex('users').where('id', jwt.verify(req.headers["Authorization"], secureValue))
+    } else {
+      console.log('error')
     }
   })
 

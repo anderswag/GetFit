@@ -22,7 +22,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    socket.on('connect', function(socket) {
+    socket.on('connect', (socket) => {
         console.log('Connected to socket');
     });
     if(localStorage.getItem('token')){
@@ -36,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar user={this.state}/>
+        <NavBar socket={socket} user={this.state}/>
         <Notification/>
         {this.props.children}
       </div>

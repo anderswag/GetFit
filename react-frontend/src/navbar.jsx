@@ -25,7 +25,11 @@ class NavBar extends Component {
       currTab:null
     };
     this.logout = this.logout.bind(this)
-
+    this.props.socket.on('server::changeNav', (userData)=>{
+      this.setState({
+        picture: userData.picture
+      })
+    })
   }
 
   logout = () => {
@@ -38,7 +42,18 @@ class NavBar extends Component {
 
   }
 
+  reload = () => {
+    // console.log('reload');
+    setInterval(
+      ()=>{
+        this.forceUpdate();
+        console.log('reload');
+      }, 3000);
+
+  }
+
   componentDidMount() {
+    // this.reload();
     fetch('http://localhost:8080/api/currentUser', {
       headers: {
         'Accept': 'application/json',
@@ -71,7 +86,7 @@ class NavBar extends Component {
             <p className="navUsername">{this.state.username}</p>
           </div>
           <Link to="/find"><div className="nav-button" id="nav-button-1"><i className="fa fa-search fa-2x" aria-hidden="true"></i></div></Link>
-          <div className="nav-button" id="nav-button-2"><i className="fa fa-bar-chart fa-2x" aria-hidden="true"></i></div>
+          <Link to="/stats"><div className="nav-button" id="nav-button-2"><i className="fa fa-bar-chart fa-2x" aria-hidden="true"></i></div></Link>
           <Link to="/settings"><div className="nav-button" id="nav-button-3"><i className="fa fa-cog fa-2x" aria-hidden="true"></i></div></Link>
           <div action="/" className="nav-button" onClick = {this.logout}>
             Logout

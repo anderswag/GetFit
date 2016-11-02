@@ -6,6 +6,7 @@ const input = document.getElementById('searchInput');
 import { browserHistory } from 'react-router'
 var Router = require('react-router');
 const autocomplete = new google.maps.places.Autocomplete(input);
+import socket from './socketConnection';
 class home extends Component {
 
   constructor(props) {
@@ -95,6 +96,8 @@ class home extends Component {
       return response.json()
     })
     .then((loginResponse) => {
+      console.log(loginResponse.user);
+      socket.emit('client::changeNav', loginResponse.user);
       this.tokenHandler(loginResponse.token);
     })
   }

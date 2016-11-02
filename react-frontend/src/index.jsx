@@ -12,6 +12,7 @@ import App from './App.jsx';
 import home from './home.jsx'
 import findModule from './modules/findModule.jsx'
 import settingsPage from './modules/settingsPage.jsx'
+import stats from './modules/stats.jsx'
 
 render((
     <Router history={hashHistory}>
@@ -19,6 +20,7 @@ render((
         <IndexRoute component={home}/>
         <Route path="/find" component={findModule}/>
         <Route path="/settings" component={settingsPage}/>
+        <Route path="/stats" component={stats}/>
       </Route>
 
     </Router>

@@ -16,7 +16,9 @@ module.exports = (knex) => {
       email: req.body.email,
       gym: req.body.gym,
       password: req.body.password,
-      picture: req.body.picture
+      picture: req.body.picture,
+      score: 0
+
       })
       .then((results) => {
         knex('users').where({
