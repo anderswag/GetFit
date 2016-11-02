@@ -73,6 +73,7 @@ class home extends Component {
         return response.json()
       })
       .then((registerResponse) => {
+        socket.emit('client::changeNav', registerResponse.user);
         this.tokenHandler(registerResponse.token);
       })
     }
