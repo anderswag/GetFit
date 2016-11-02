@@ -10,26 +10,21 @@ console.log("rendering <SettingsPage/>");
       maxWidth: 250,
     },
     toggle: {
+      'padding-top': 25,
       marginBottom: 16,
       top: 100,
       left: 200,
-      width: 250
-    },
-    thumbOff: {
-      backgroundColor: '#ffcccc',
-    },
-    trackOff: {
-      backgroundColor: '#ff9d9d',
-    },
-    thumbSwitched: {
-      backgroundColor: 'red',
-    },
-    trackSwitched: {
-      backgroundColor: '#ff9d9d',
+      width: 250,
+      height: 50,
+      background: '#2c2c31',
+      color:'#1db9b7',
+      'border-radius': 10
     },
     labelStyle: {
-      color: 'red',
-    },
+      'padding-left': 10,
+      color:'#1db9b7',
+      'font-size': 23
+    }
   };
 
 class SettingsPage extends Component {
@@ -100,7 +95,7 @@ class SettingsPage extends Component {
       <div className="previewComponent">
       <MuiThemeProvider>
         <div style={styles.block}>
-          <Toggle label="Become a mentor" style={styles.toggle} onClick={this.handleMentorSwitch} defaultToggled={this.state.mentor}/>
+          <Toggle label="Become a mentor" labelStyle={styles.labelStyle} style={styles.toggle} onClick={this.handleMentorSwitch} defaultToggled={this.state.mentor}/>
         </div>
       </MuiThemeProvider>
       </div>
