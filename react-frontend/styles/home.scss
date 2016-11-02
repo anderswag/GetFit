@@ -250,10 +250,28 @@ input[type="submit"]{
   overflow: hidden;
   width: 600px;
   color:#1db9b7;
+  margin: 20px auto;
 }
 .leaderboard {
   overflow: scroll;
-  height: 100%;
+  height: 800px;
+  .leaderTable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin:0 auto;
+    background-color:#fe5335;
+  }
+
+  td, th {
+      border: 1px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+      background-color: #dddddd;
+  }
+}
+.leaderPic {
+  float:left;
 }
 .up-vote {
   border: 2px solid black;
@@ -264,4 +282,8 @@ input[type="submit"]{
   border: 2px solid black;
   border-radius: 5px;
   width: 70px;
+}
+.voteContainer {
+  float:right;
+  height:100%;
 }
