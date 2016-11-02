@@ -17,14 +17,19 @@ class NavBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      type:"",
-      username: "Anon",
-      content: "",
-      olduser:"",
+      first_name:'',
+      last_name:'',
+      username:'',
+      picture:'http://i1.wp.com/www.techrepublic.com/bundles/techrepubliccore/images/icons/standard/icon-user-default.png',
+      loginStatus:'Login',
       currTab:null
     };
     this.logout = this.logout.bind(this)
-
+    this.props.socket.on('server::changeNav', (userData)=>{
+      this.setState({
+        picture: userData.picture
+      })
+    })
   }
 
   logout = () => {
@@ -37,8 +42,37 @@ class NavBar extends Component {
 
   }
 
-  componentDidMount() {
+  reload = () => {
+    // console.log('reload');
+    setInterval(
+      ()=>{
+        this.forceUpdate();
+        console.log('reload');
+      }, 3000);
 
+  }
+
+  componentDidMount() {
+    // this.reload();
+    fetch('http://localhost:8080/api/currentUser', {
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+        'Authorization': localStorage.getItem("token")
+      }
+    })
+    .then(function(response){
+      return response.json();
+    }).then((j) => {
+      console.log(j[0]);
+      let user = j[0];
+      this.setState({
+        first_name: user.first_name,
+        last_name: user.last_name,
+        username: user.username,
+        picture: user.picture
+      })
+    })
   }
 
   render() {
@@ -48,7 +82,8 @@ class NavBar extends Component {
             <CircularProgressExampleDeterminate/>
           </MuiThemeProvider>
           <div className="image-container">
-            <img src="" className="image"/>
+            <img src={this.state.picture} className="image"/>
+            <p className="navUsername">{this.state.username}</p>
           </div>
           <Link to="/find"><div className="nav-button" id="nav-button-1"><i className="fa fa-search fa-2x" aria-hidden="true"></i></div></Link>
           <Link to="/stats"><div className="nav-button" id="nav-button-2"><i className="fa fa-bar-chart fa-2x" aria-hidden="true"></i></div></Link>

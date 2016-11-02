@@ -18,14 +18,11 @@ const knexLogger  = require('knex-logger');
 // Seperated Routes for each Resource
 const usersRoutes          = require("./routes/users");
 const releventMentorRoutes = require("./routes/relevent-mentors");
-const registerRoutes       = require("./routes/register");
-const loginRoutes          = require("./routes/login");
-const settingsRoutes       = require("./routes/settings");
+const registerRoutes = require("./routes/register");
+const loginRoutes = require("./routes/login");
+const settingsRoutes = require("./routes/settings");
+const currentUserRoutes = require("./routes/currentUser");
 const statsRoutes          = require("./routes/stats");
-//SOCKET START
-
-
-
 
 // Load requirements
 const http = require('http');
@@ -63,6 +60,7 @@ app.use("/api/relevent-mentors", releventMentorRoutes(knex));
 app.use("/api/register", registerRoutes(knex));
 app.use("/api/login", loginRoutes(knex));
 app.use("/api/settings", settingsRoutes(knex));
+app.use("/api/currentUser", currentUserRoutes(knex));
 app.use("/api/stats", statsRoutes(knex));
 // Home page
 app.get("/", (req, res) => {
@@ -91,6 +89,16 @@ io.on('connection', function(socket) {
       // }
       socket.broadcast.emit('server::note', message);
     })
+    socket.on('client::accept', function(message){
+      socket.broadcast.emit('server::accept', message)
+    })
+
+
+    socket.on('client::changeNav', function(userData){
+      socket.emit('server::changeNav', userData)
+    })
+
+
     console.log('Client connected.');
     // Disconnect listener
     io.on('disconnect', function() {

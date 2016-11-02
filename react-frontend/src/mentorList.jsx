@@ -44,7 +44,7 @@ export default class TableExampleSimple extends React.Component {
       ))}
       </TableBody>
       </Table>
-        <div className="sendRequest" onClick={()=> this.props.socket(this.selectedMentor)}>
+        <div className="sendRequest" onClick={()=> this.props.socket(this.selectedMentor, this.props.user)}>
         Let's go
         </div>
       </div>

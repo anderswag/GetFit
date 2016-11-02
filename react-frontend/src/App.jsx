@@ -16,26 +16,27 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = ({
-      notiStatus:null
+      notiStatus:null,
+      hasToken: false
     })
   }
 
   componentDidMount() {
-    socket.on('connect', function(socket) {
+    socket.on('connect', (socket) => {
         console.log('Connected to socket');
     });
-
-    // socket.on("server::note", function(data) {
-    //   //Do notification here//
-    //   console.log(data);
-    // });
+    if(localStorage.getItem('token')){
+      this.setState({
+        hasToken:true
+      })
+    }
   }
 
 
   render() {
     return (
       <div>
-        <NavBar/>
+        <NavBar socket={socket} user={this.state}/>
         <Notification/>
         {this.props.children}
       </div>

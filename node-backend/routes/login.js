@@ -5,7 +5,6 @@ const router  = express.Router();
 const jwt = require('jsonwebtoken');
 const secureValue = "shhhhhhhhhh"
 
-
 module.exports = (knex) => {
 
   router.post("/", (req, res) => {
@@ -20,6 +19,7 @@ module.exports = (knex) => {
           return
         }
         results = results[0];
+        console.log(results);
         res.json({
           user: results,
           token: jwt.sign({id: results.id}, secureValue)

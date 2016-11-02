@@ -34,6 +34,21 @@ class SettingsPage extends Component {
       return response.json()
     }).then((responseObject) => {
       console.log(responseObject[0].score)
+    }).then(()=>{
+      fetch('http://localhost:8080/api/stats', {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json',
+          'Authorization': localStorage.getItem("token")
+        }
+      })
+      .then(function(response){
+        return response.json()
+      }).then((responseObject) => {
+        this.setState({mentors:responseObject})
+      }).then((array) => {
+        console.log(this.state)
+      })
     })
   }
   componentDidMount() {
