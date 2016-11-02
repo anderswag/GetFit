@@ -16,11 +16,12 @@ const knexLogger  = require('knex-logger');
 
 
 // Seperated Routes for each Resource
-const usersRoutes = require("./routes/users");
+const usersRoutes          = require("./routes/users");
 const releventMentorRoutes = require("./routes/relevent-mentors");
-const registerRoutes = require("./routes/register");
-const loginRoutes = require("./routes/login");
-const settingsRoutes = require("./routes/settings");
+const registerRoutes       = require("./routes/register");
+const loginRoutes          = require("./routes/login");
+const settingsRoutes       = require("./routes/settings");
+const statsRoutes          = require("./routes/stats");
 //SOCKET START
 
 
@@ -49,7 +50,7 @@ app.use("/styles", sass({
 app.use(express.static("public"));
 app.use(function(req,res,next) {
   res.header("Access-Control-Allow-Origin", req.headers.origin);
-  res.header("Access-Control-Allow-Mathods", "POST, GET, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
   res.header("Access-Control-Allow-Credentials", true);
   res.header("Access-Control-Allow-Headers", "Origin, Authorization, X-Requested-With, Content-Type, Accept");
   next();
@@ -62,6 +63,7 @@ app.use("/api/relevent-mentors", releventMentorRoutes(knex));
 app.use("/api/register", registerRoutes(knex));
 app.use("/api/login", loginRoutes(knex));
 app.use("/api/settings", settingsRoutes(knex));
+app.use("/api/stats", statsRoutes(knex));
 // Home page
 app.get("/", (req, res) => {
   res.render("index");

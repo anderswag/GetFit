@@ -51,7 +51,7 @@ class NavBar extends Component {
             <img src="" className="image"/>
           </div>
           <Link to="/find"><div className="nav-button" id="nav-button-1"><i className="fa fa-search fa-2x" aria-hidden="true"></i></div></Link>
-          <div className="nav-button" id="nav-button-2"><i className="fa fa-bar-chart fa-2x" aria-hidden="true"></i></div>
+          <Link to="/stats"><div className="nav-button" id="nav-button-2"><i className="fa fa-bar-chart fa-2x" aria-hidden="true"></i></div></Link>
           <Link to="/settings"><div className="nav-button" id="nav-button-3"><i className="fa fa-cog fa-2x" aria-hidden="true"></i></div></Link>
           <div action="/" className="nav-button" onClick = {this.logout}>
             Logout
