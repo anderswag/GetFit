@@ -16,7 +16,7 @@ class home extends Component {
 
   render() {
     return (
-    <div>
+    <div className="main-sign-form">
       <div className="register-form">
         <form onSubmit={this.submitRegister}>
           <input type="text" name="first_name" onChange={(event) => this.setState({ first_name: event.target.value })} placeholder="first name"/>
@@ -27,14 +27,14 @@ class home extends Component {
           <input type="password" name="password" onChange={(event) => this.setState({ password: event.target.value })} placeholder="password"/>
           <input type="password" name="confirm_password" onChange={(event) => this.setState({ confirm_password: event.target.value })} placeholder="confirm password"/>
           <Geosuggest type="text" onSuggestSelect={(suggest) => this.setState({gym: suggest.label})} placeholder="select your gym"/>
-          <input className="registerSubmit" type="submit" value="submit"/>
+          <input className="registerSubmit" type="submit" value="Register"/>
         </form>
       </div>
       <div className="login-form">
         <form onSubmit={this.submitLogin}>
           <input type="text" name="login_username" onChange={(event) => this.setState({login_username: event.target.value})} placeholder="please enter a username"/>
           <input type="password" name="login_password" onChange={(event) => this.setState({login_password: event.target.value})} placeholder="please enter a password"/>
-          <input type="submit" value="submit"/>
+          <input type="submit" value="Login"/>
         </form>
       </div>
     </div>

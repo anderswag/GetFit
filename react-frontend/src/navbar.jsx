@@ -22,12 +22,17 @@ class NavBar extends Component {
       username:'',
       picture:'http://i1.wp.com/www.techrepublic.com/bundles/techrepubliccore/images/icons/standard/icon-user-default.png',
       loginStatus:'Login',
-      currTab:null
+      currTab:null,
+      score:0
     };
     this.logout = this.logout.bind(this)
     this.props.socket.on('server::changeNav', (userData)=>{
       this.setState({
-        picture: userData.picture
+        picture: userData.picture,
+        score: userData.score,
+        username: userData.username
+      },()=>{
+        console.log(this.state.score)
       })
     })
   }
@@ -79,7 +84,7 @@ class NavBar extends Component {
     return (
         <div id="nav">
           <MuiThemeProvider>
-            <CircularProgressExampleDeterminate/>
+            <CircularProgressExampleDeterminate score={this.state.score}/>
           </MuiThemeProvider>
           <div className="image-container">
             <img src={this.state.picture} className="image"/>

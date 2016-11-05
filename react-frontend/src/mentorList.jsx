@@ -29,7 +29,7 @@ export default class TableExampleSimple extends React.Component {
         <TableRow>
           <TableHeaderColumn>Picture</TableHeaderColumn>
           <TableHeaderColumn>Name</TableHeaderColumn>
-          <TableHeaderColumn>Status</TableHeaderColumn>
+
           <TableHeaderColumn>Score</TableHeaderColumn>
         </TableRow>
       </TableHeader>
@@ -38,14 +38,14 @@ export default class TableExampleSimple extends React.Component {
         <TableRow className ="rowStyle" value={item} key={index}>
           <TableRowColumn><img src={item.picture} height="90" width="90"/></TableRowColumn>
           <TableRowColumn>{item.first_name} {item.last_name}</TableRowColumn>
-          <TableRowColumn>Employed</TableRowColumn>
+
           <TableRowColumn>{item.score}</TableRowColumn>
         </TableRow>
       ))}
       </TableBody>
       </Table>
         <div className="sendRequest" onClick={()=> this.props.socket(this.selectedMentor, this.props.user)}>
-        Let's go
+        Show me the ropes
         </div>
       </div>
       );

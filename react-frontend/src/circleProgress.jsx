@@ -10,11 +10,13 @@ export default class CircularProgressExampleDeterminate extends React.Component 
     super(props);
 
     this.state = {
-      completed: 0,
+      completed: 100,
+      score:0
     };
   }
 
   componentDidMount() {
+    console.log(this.props.score);
     this.timer = setTimeout(() => this.progress(0), 1000);
   }
 
@@ -23,8 +25,13 @@ export default class CircularProgressExampleDeterminate extends React.Component 
   }
 
   progress(completed) {
+    // console.log(this.props.score);
+    // console.log(this.state.score);
+    // this.setState({
+    //   score: this.props.score
+    // })
     if (completed > 100) {
-      this.setState({completed: 82});
+      this.setState({completed: 85});
     } else {
       this.setState({completed});
       const diff = Math.random() * 10;

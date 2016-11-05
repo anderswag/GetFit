@@ -10,7 +10,7 @@ console.log("rendering <SettingsPage/>");
       maxWidth: 250,
     },
     toggle: {
-      'padding-top': 25,
+      'paddingTop': 25,
       marginBottom: 16,
       top: 100,
       left: 200,
@@ -18,12 +18,12 @@ console.log("rendering <SettingsPage/>");
       height: 50,
       background: '#2c2c31',
       color:'#1db9b7',
-      'border-radius': 10
+      'borderRadius': 10
     },
     labelStyle: {
-      'padding-left': 10,
+      'paddingLeft': 10,
       color:'#1db9b7',
-      'font-size': 23
+      'fontSize': 23
     }
   };
 

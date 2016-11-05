@@ -79,16 +79,23 @@ class SettingsPage extends Component {
       <div className="leaderboard">
          <table className="leaderTable">
            <tr>
+             <th>Leaderboards</th>
              <th>Username</th>
-             <th>Gym</th>
              <th>Reputation</th>
+             <th></th>
            </tr>
         {this.state.mentors.map((mentor, index) => {
           return (
               <tr key={index} >
-                <td><div><img  width='90' height='90'src={mentor.picture}/>{mentor.username}</div></td>
-                <td>{mentor.gym}</td>
+                <td><div><img  width='90' height='90'src={mentor.picture}/></div></td>
+                <td>{mentor.username}</td>
                 <td>{mentor.score}</td>
+                <td>
+                <div className='voteContainer'>
+                  <div type="submit" className="up-vote" onClick={this.handleVote.bind(this, mentor, 'up')}><i className="fa fa-arrow-up" aria-hidden="true"></i></div>
+                  <div type="submit" className="down-vote" onClick={this.handleVote.bind(this, mentor,'down')}><i className="fa fa-arrow-down" aria-hidden="true"></i></div>
+                </div>
+                </td>
               </tr>
           )
         })}
